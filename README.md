@@ -4,8 +4,11 @@
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12%20%7C%203.14-blue.svg)](https://www.python.org/)
 [![Pydantic v2](https://img.shields.io/badge/pydantic-v2.7+-green.svg)](https://docs.pydantic.dev/)
 [![Streamlit Ready](https://img.shields.io/badge/streamlit-cloud%20ready-FF4B4B.svg)](https://streamlit.io/)
-[![Tests](https://img.shields.io/badge/pytest-20%20passed%20%7C%20100%25-brightgreen.svg)]()
+[![Tests](https://img.shields.io/badge/pytest-27%20passed%20%7C%20100%25-brightgreen.svg)]()
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+> [!NOTE]
+> **Executive Solution Document:** For the comprehensive engineering report, mathematical formulations, scale-invariant algorithms, 1,000-show scaling blueprint, and honest failure mode analysis, see **[SOLUTION_DOC.md](SOLUTION_DOC.md)**.
 
 ---
 
