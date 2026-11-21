@@ -121,7 +121,7 @@ class AuditPipeline:
 
         # Executive Summary
         exec_summary = (
-            f"Pre-Render Health Gatekeeper evaluated {total_episodes} episodes ({total_duration_sec / 60:.1f} min). "
+            f"Pre-Render Health Gatekeeper evaluated {total_episodes} episodes ({total_duration_sec / 60:.1f} min total screen time). "
             f"Overall Verdict: {overall_verdict}. "
             f"Narrative Pacing scored {fatigue_result.season_pacing_score}/100 with a max cliffhanger streak of {fatigue_result.max_consecutive_cliffhangers} "
             f"and {len(fatigue_result.danger_zone_fatigue_episodes)} fatigue alerts in the monetization paywall zone (Ep 5-15). "
