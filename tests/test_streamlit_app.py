@@ -44,4 +44,16 @@ def test_streamlit_app_dark_theme_css():
     assert any("#0E131F" in str(m.value) for m in at.markdown)
 
 
+def test_streamlit_app_sidebar_number_input():
+    """Verifies that Number of Episodes to Audit is a number input and Audit Parameters expander is removed."""
+    app_path = Path(__file__).parent.parent / "app.py"
+    at = AppTest.from_file(str(app_path))
+    at.run(timeout=10)
+    assert len(at.exception) == 0
+    # Confirm number_input exists
+    assert any("Number of Episodes" in ni.label for ni in at.sidebar.number_input)
+    # Confirm Audit Parameters expander is not present
+    assert not any("Audit Parameters" in exp.label for exp in at.sidebar.expander)
+
+
 

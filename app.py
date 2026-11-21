@@ -345,19 +345,14 @@ api_key_input = st.sidebar.text_input(
     help="Enter an API key here, or leave blank to automatically use the key from your .env file or run in simulated mock mode.",
 )
 
-# Advanced Configuration
-with st.sidebar.expander("Audit Parameters", expanded=False):
-    max_episodes = st.slider("Max Episodes to Audit:", min_value=1, max_value=100, value=100, help="Episode volume limit for large seasons (1 to 100).")
-    samples_per_char = st.slider("Dialogue Samples per Character:", min_value=1, max_value=100, value=15, help="Number of blind test lines sampled per character (1 to 100).")
-    top_k = st.slider("Voice Test Top-K Characters:", min_value=2, max_value=6, value=4)
-    use_cache = st.checkbox("Enable SHA-256 Disk Caching", value=True, help="Uncheck this to bypass all cached files and force fresh live LLM calls.")
-    if st.button("Clear Local Disk Cache", use_container_width=True):
-        import shutil
-        cache_dir = Path(".cache/llm")
-        if cache_dir.exists():
-            shutil.rmtree(cache_dir, ignore_errors=True)
-        cache_dir.mkdir(parents=True, exist_ok=True)
-        st.toast("Disk cache deleted! Next run will call the live model directly.")
+max_episodes = st.sidebar.number_input(
+    "Number of Episodes to Audit:",
+    min_value=1,
+    max_value=1000,
+    value=100,
+    step=1,
+    help="Maximum number of episodes to process in this audit run.",
+)
 
 run_button = st.sidebar.button("Run Pre-Render Script Audit", type="primary", use_container_width=True)
 
@@ -386,15 +381,15 @@ def execute_audit():
             provider=provider_choice,
             model=model_name,
             api_key=active_api_key,
-            use_cache=use_cache,
+            use_cache=True,
         )
 
         output_dir = Path("outputs/streamlit_run")
         pipeline = AuditPipeline(
             llm_client=client,
             output_dir=output_dir,
-            top_k_characters=top_k,
-            samples_per_character=samples_per_char,
+            top_k_characters=None,
+            samples_per_character=15,
         )
 
         # Parse Source

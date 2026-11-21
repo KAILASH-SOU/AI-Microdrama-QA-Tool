@@ -44,10 +44,10 @@ FIRST_PERSON_PRONOUNS: Set[str] = {
 
 def select_top_characters(
     episodes: List[EpisodeData],
-    top_k: int = 4,
+    top_k: Optional[int] = None,
     min_lines: int = 15,
 ) -> List[str]:
-    """Selects the top K most frequent speaking characters across the season with at least min_lines."""
+    """Selects speaking characters across the season with at least min_lines (or top_k if specified)."""
     counts = Counter()
     for ep in episodes:
         for spk, cnt in ep.speaker_counts.items():
@@ -55,6 +55,8 @@ def select_top_characters(
                 counts[spk] += cnt
 
     eligible = [spk for spk, cnt in counts.most_common() if cnt >= min_lines]
+    if top_k is None:
+        return eligible if eligible else [spk for spk, _ in counts.most_common()]
     if len(eligible) < top_k:
         # Fallback to top_k even if some have fewer lines
         return [spk for spk, _ in counts.most_common(top_k)]
@@ -658,7 +660,7 @@ def rewrite_and_retest_line(
 
 def audit_season_voice(
     episodes: List[EpisodeData],
-    top_k: int = 4,
+    top_k: Optional[int] = None,
     samples_per_char: int = 15,
     client: Optional[LLMClient] = None,
 ) -> VoiceAuditResult:

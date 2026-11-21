@@ -52,6 +52,12 @@ def test_stratified_test_set_sampling():
     top_chars = select_top_characters(episodes, top_k=3, min_lines=2)
     assert len(top_chars) >= 2
 
+    # Verify top_k=None selects all characters without artificial limits
+    all_chars = select_top_characters(episodes, top_k=None, min_lines=2)
+    assert len(all_chars) == 4
+    assert "CAPTAIN MAYA VANCE" in all_chars
+    assert "CHANCELLOR THORNE" in all_chars
+
     test_lines, leakage_count = build_stratified_test_set(
         episodes,
         top_characters=top_chars,

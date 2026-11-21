@@ -35,7 +35,7 @@ class AuditPipeline:
         self,
         llm_client: Optional[LLMClient] = None,
         output_dir: Union[str, Path] = "outputs/run_audit",
-        top_k_characters: int = 4,
+        top_k_characters: Optional[int] = None,
         samples_per_character: int = 15,
     ):
         self.client = llm_client or LLMClient()
