@@ -1,8 +1,8 @@
 # Solution Architecture Document: Pre-Render Script Health Gatekeeper
 **Production-Grade Script QA Gatekeeper for AI Microdrama Studios**  
-*Author:* Kailash Sou  
+*Author:* Kailash
 *Target Persona:* AI Microdrama Writer / Creative Producer  
-*Repository:* [AI-Microdrama-QA-Tool](https://github.com/KAILASH-SOU/AI-Microdrama-QA-Tool)  
+*Link:* [AI-Microdrama-QA-Tool](https://kuku-scriptguard-tool.streamlit.app/)  
 
 ---
 
