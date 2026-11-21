@@ -398,6 +398,11 @@ def execute_audit():
         )
 
         output_dir = Path("outputs/streamlit_run")
+        if output_dir.exists():
+            import shutil
+            shutil.rmtree(output_dir, ignore_errors=True)
+        output_dir.mkdir(parents=True, exist_ok=True)
+
         pipeline = AuditPipeline(
             llm_client=client,
             output_dir=output_dir,
@@ -439,9 +444,37 @@ def execute_audit():
             season_title="Audited Microdrama Season",
         )
 
+        # Generate unique run ID and read fresh in-memory payloads
+        import time, uuid, io, zipfile
+        run_id = f"{int(time.time())}_{uuid.uuid4().hex[:6]}"
+        audit_time_str = time.strftime("%Y-%m-%d %H:%M:%S")
+
+        export_data = {}
+        for k, p in exported_files.items():
+            path_obj = Path(p)
+            if path_obj.exists():
+                if path_obj.suffix == ".png":
+                    export_data[k] = path_obj.read_bytes()
+                else:
+                    export_data[k] = path_obj.read_text(encoding="utf-8")
+
+        # Build in-memory all-in-one ZIP archive
+        zip_buffer = io.BytesIO()
+        added_names = set()
+        with zipfile.ZipFile(zip_buffer, "w", zipfile.ZIP_DEFLATED) as zf:
+            for k, p in exported_files.items():
+                path_obj = Path(p)
+                if path_obj.exists() and path_obj.name not in added_names:
+                    zf.write(path_obj, arcname=path_obj.name)
+                    added_names.add(path_obj.name)
+        export_data["all_artifacts_zip"] = zip_buffer.getvalue()
+
+        st.session_state.audit_run_id = run_id
+        st.session_state.last_audit_time = audit_time_str
+        st.session_state.export_data = export_data
         st.session_state.audit_report = report
         st.session_state.exported_files = exported_files
-        st.toast("Script Health Audit Complete!")
+        st.toast("Script Health Audit Complete! Fresh outputs ready for download.")
 
 
 if run_button:
@@ -1067,48 +1100,119 @@ with tab4:
     st.divider()
 
     st.markdown("#### Raw Audit Exports")
-    st.caption("Download the complete, unedited raw output files for auditing, production handoff, or CI/CD pipelines:")
+    run_id = st.session_state.get("audit_run_id", "latest")
+    audit_time = st.session_state.get("last_audit_time", "Latest Run")
+    st.caption(f"Download the complete, unedited raw output files for auditing, production handoff, or CI/CD pipelines. (Generated: {audit_time} • Run ID: `{run_id}`):")
+
+    export_data = st.session_state.get("export_data", {})
+    # Fallback to reading disk files if session state export_data was not yet populated
+    if not export_data and exported_files:
+        export_data = {}
+        for k, p in exported_files.items():
+            path_obj = Path(p)
+            if path_obj.exists():
+                if path_obj.suffix == ".png":
+                    export_data[k] = path_obj.read_bytes()
+                else:
+                    export_data[k] = path_obj.read_text(encoding="utf-8")
+        st.session_state.export_data = export_data
+
+    # All-in-one ZIP bundle
+    zip_data = export_data.get("all_artifacts_zip")
+    if zip_data:
+        st.download_button(
+            label="Download Complete Audit Bundle (.zip)",
+            data=zip_data,
+            file_name=f"kuku_scriptguard_audit_bundle_{run_id}.zip",
+            mime="application/zip",
+            type="primary",
+            use_container_width=True,
+            key=f"dl_bundle_{run_id}",
+            help="Download all 6 raw reports, fatigue curve PNG image, and CSV matrices in a single zip archive.",
+        )
+        st.write("")
 
     d1, d2, d3, d4 = st.columns(4)
 
     # 01 Season Health Summary
-    p1 = exported_files.get("01_season_health_summary")
-    if p1 and p1.exists():
-        with open(p1, "r", encoding="utf-8") as f:
-            d1.download_button("01 Summary (JSON)", f.read(), file_name="01_season_health_summary.json", mime="application/json")
+    data_01 = export_data.get("01_season_health_summary")
+    if data_01:
+        d1.download_button(
+            "01 Summary (JSON)",
+            data=data_01,
+            file_name="01_season_health_summary.json",
+            mime="application/json",
+            use_container_width=True,
+            key=f"dl_btn_01_{run_id}",
+        )
 
     # 02 Fatigue Curve PNG Image
-    p2 = exported_files.get("02_episode_fatigue_curve") or exported_files.get("02_episode_fatigue_curve_png")
-    if p2 and p2.exists():
-        with open(p2, "rb") as f:
-            d2.download_button("02 Fatigue Curve (PNG)", f.read(), file_name="02_episode_fatigue_curve.png", mime="image/png")
+    data_02 = export_data.get("02_episode_fatigue_curve") or export_data.get("02_episode_fatigue_curve_png")
+    if data_02:
+        d2.download_button(
+            "02 Fatigue Curve (PNG)",
+            data=data_02,
+            file_name="02_episode_fatigue_curve.png",
+            mime="image/png",
+            use_container_width=True,
+            key=f"dl_btn_02_{run_id}",
+        )
 
     # 03 Confusion Matrix CSV
-    p3 = exported_files.get("03_voice_metrics_csv")
-    if p3 and p3.exists():
-        with open(p3, "r", encoding="utf-8") as f:
-            d3.download_button("03 Confusion Matrix (CSV)", f.read(), file_name="03_blind_voice_confusion_matrix.csv", mime="text/csv")
+    data_03 = export_data.get("03_voice_metrics_csv")
+    if data_03:
+        d3.download_button(
+            "03 Confusion Matrix (CSV)",
+            data=data_03,
+            file_name="03_blind_voice_confusion_matrix.csv",
+            mime="text/csv",
+            use_container_width=True,
+            key=f"dl_btn_03_{run_id}",
+        )
 
     # 04 Flagged Lines CSV
-    p4 = exported_files.get("04_flagged_interchangeable_lines")
-    if p4 and p4.exists():
-        with open(p4, "r", encoding="utf-8") as f:
-            d4.download_button("04 Flagged Lines (CSV)", f.read(), file_name="04_flagged_interchangeable_lines.csv", mime="text/csv")
+    data_04 = export_data.get("04_flagged_interchangeable_lines")
+    if data_04:
+        d4.download_button(
+            "04 Flagged Lines (CSV)",
+            data=data_04,
+            file_name="04_flagged_interchangeable_lines.csv",
+            mime="text/csv",
+            use_container_width=True,
+            key=f"dl_btn_04_{run_id}",
+        )
 
     st.write("")
 
     d5, d6, _, _ = st.columns(4)
     # 05 Failure Log JSON
-    p5 = exported_files.get("05_validation_and_failure_log")
-    if p5 and p5.exists():
-        with open(p5, "r", encoding="utf-8") as f:
-            d5.download_button("05 Failure Log (JSON)", f.read(), file_name="05_validation_and_failure_log.json", mime="application/json")
+    data_05 = export_data.get("05_validation_and_failure_log")
+    if data_05:
+        d5.download_button(
+            "05 Failure Log (JSON)",
+            data=data_05,
+            file_name="05_validation_and_failure_log.json",
+            mime="application/json",
+            use_container_width=True,
+            key=f"dl_btn_05_{run_id}",
+        )
 
     # 06 Cost Report JSON
-    p6 = exported_files.get("06_cost_and_latency_report")
-    if p6 and p6.exists():
-        with open(p6, "r", encoding="utf-8") as f:
-            d6.download_button("06 Cost Report (JSON)", f.read(), file_name="06_cost_and_latency_report.json", mime="application/json")
+    data_06 = export_data.get("06_cost_and_latency_report")
+    if data_06:
+        d6.download_button(
+            "06 Cost Report (JSON)",
+            data=data_06,
+            file_name="06_cost_and_latency_report.json",
+            mime="application/json",
+            use_container_width=True,
+            key=f"dl_btn_06_{run_id}",
+        )
+
+    # On-demand JSON preview so producer can verify fresh data live
+    if data_01:
+        with st.expander("Live Verification Preview: 01_season_health_summary.json (Fresh Data)", expanded=False):
+            st.code(data_01, language="json")
 
     st.divider()
 

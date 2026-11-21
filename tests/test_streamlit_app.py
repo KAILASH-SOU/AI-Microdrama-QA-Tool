@@ -69,4 +69,24 @@ def test_streamlit_app_sha_caching_controls():
     assert any("Clear SHA-256 Cache" in b.label for b in at.sidebar.button)
 
 
+def test_streamlit_app_export_download_buttons(monkeypatch):
+    """Verifies that all 6 download buttons and the full zip bundle button are rendered with dynamic keys."""
+    monkeypatch.setenv("MOCK_MODE", "true")
+    monkeypatch.delenv("GEMINI_API_KEY", raising=False)
+    app_path = Path(__file__).parent.parent / "app.py"
+    at = AppTest.from_file(str(app_path))
+    at.run(timeout=30)
+    assert len(at.exception) == 0
+
+    # Verify download buttons exist
+    labels = [b.label for b in at.download_button]
+    assert any("Summary (JSON)" in l for l in labels)
+    assert any("Fatigue Curve (PNG)" in l for l in labels)
+    assert any("Confusion Matrix (CSV)" in l for l in labels)
+    assert any("Flagged Lines (CSV)" in l for l in labels)
+    assert any("Failure Log (JSON)" in l for l in labels)
+    assert any("Cost Report (JSON)" in l for l in labels)
+    assert any("Complete Audit Bundle (.zip)" in l for l in labels)
+
+
 

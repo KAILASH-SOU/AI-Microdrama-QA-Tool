@@ -17,6 +17,8 @@ I Married a Broken Soldier. He was a Duke/
 # Cache and temporary outputs
 .cache/
 outputs/
+output files/
+"output files/"
 __pycache__/
 *.py[cod]
 *$py.class
