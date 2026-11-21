@@ -354,6 +354,19 @@ max_episodes = st.sidebar.number_input(
     help="Maximum number of episodes to process in this audit run.",
 )
 
+use_cache = st.sidebar.checkbox(
+    "Enable SHA-256 Disk Caching",
+    value=True,
+    help="Caches deterministic model responses on disk using SHA-256 hashes of (provider, model, prompt_version, payload). Guarantees instant 0.00s repeat runs at $0.00 marginal cost. Uncheck to force fresh live API calls.",
+)
+if st.sidebar.button("Clear SHA-256 Cache", use_container_width=True):
+    import shutil
+    cache_dir = Path(".cache/llm")
+    if cache_dir.exists():
+        shutil.rmtree(cache_dir, ignore_errors=True)
+    cache_dir.mkdir(parents=True, exist_ok=True)
+    st.toast("SHA-256 disk cache cleared! Next run will execute fresh live LLM calls.")
+
 run_button = st.sidebar.button("Run Pre-Render Script Audit", type="primary", use_container_width=True)
 
 # -----------------------------------------------------------------------------
@@ -381,7 +394,7 @@ def execute_audit():
             provider=provider_choice,
             model=model_name,
             api_key=active_api_key,
-            use_cache=True,
+            use_cache=use_cache,
         )
 
         output_dir = Path("outputs/streamlit_run")
@@ -953,10 +966,16 @@ with tab3:
             session_key = f"rewrite_{selected_pred.beat_id}"
             if st.button("Sharpen Character Voice & Re-Test Line", use_container_width=True):
                 with st.spinner("Rewriting dialogue line and re-running blind classifier..."):
-                    client = LLMClient()
+                    active_api_key = api_key_input.strip() if api_key_input else None
+                    doctor_client = LLMClient(
+                        provider=provider_choice,
+                        model=model_name,
+                        api_key=active_api_key,
+                        use_cache=use_cache,
+                    )
                     rewrite_result = rewrite_and_retest_line(
                         selected_pred,
-                        client=client,
+                        client=doctor_client,
                         candidate_characters=report.voice_audit.top_speakers,
                         archetypes=report.voice_audit.character_archetypes,
                     )
@@ -1030,14 +1049,20 @@ with tab4:
     st.subheader("Integrity Verification, Failure Mode Log & Raw Exports")
 
     # Metrics on Integrity
-    q1, q2, q3 = st.columns(3)
+    q1, q2, q3, q4 = st.columns(4)
     val_summary = report.validation_summary
+    cost_summary = report.llm_cost_and_usage or {}
     with q1:
         st.metric("Parser Unparsed Lines", f"{val_summary.get('total_parsing_issues', 0)}", delta="0.0% unparsed rate", delta_color="normal")
     with q2:
         st.metric("Leakage-Filtered Lines", f"{val_summary.get('leakage_filtered_lines', 0)} lines", delta="Protected blind test", delta_color="off")
     with q3:
         st.metric("Citation Hallucinations Rejected", f"{val_summary.get('unverified_citations_count', 0)}", delta="Deterministic Python guard", delta_color="normal")
+    with q4:
+        cached_calls = cost_summary.get("cached_calls", 0)
+        total_calls = cost_summary.get("total_calls", 0)
+        hit_rate = cost_summary.get("cache_hit_rate_pct", 0.0)
+        st.metric("SHA-256 Cache Hits", f"{hit_rate}%", delta=f"{cached_calls}/{total_calls} calls ($0 marginal cost)", delta_color="normal")
 
     st.divider()
 

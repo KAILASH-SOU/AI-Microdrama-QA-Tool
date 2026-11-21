@@ -56,4 +56,17 @@ def test_streamlit_app_sidebar_number_input():
     assert not any("Audit Parameters" in exp.label for exp in at.sidebar.expander)
 
 
+def test_streamlit_app_sha_caching_controls():
+    """Verifies that SHA-256 caching checkbox and cache clearing controls exist in the sidebar."""
+    app_path = Path(__file__).parent.parent / "app.py"
+    at = AppTest.from_file(str(app_path))
+    at.run(timeout=10)
+    assert len(at.exception) == 0
+    # Confirm SHA-256 checkbox exists and defaults to True
+    sha_cb = next(cb for cb in at.sidebar.checkbox if "SHA-256" in cb.label)
+    assert sha_cb.value is True
+    # Confirm Clear SHA-256 Cache button exists
+    assert any("Clear SHA-256 Cache" in b.label for b in at.sidebar.button)
+
+
 
