@@ -7,8 +7,7 @@
 [![Tests](https://img.shields.io/badge/pytest-27%20passed%20%7C%20100%25-brightgreen.svg)]()
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-> [!NOTE]
-> **Executive Solution Document:** For the comprehensive engineering report, mathematical formulations, scale-invariant algorithms, 1,000-show scaling blueprint, and honest failure mode analysis, see **[SOLUTION_DOC.md](SOLUTION_DOC.md)**.
+
 
 ---
 
