@@ -1,0 +1,32 @@
+# Proprietary raw screenplays (Confidentiality First)
+data/
+data/**
+data/raw_scripts/
+I Married a Broken Soldier. He was a Duke/
+*.txt
+!requirements.txt
+!sample_data/*.txt
+*.zip
+**/*.zip
+
+# Secrets & Environment variables
+.env
+.env*
+!.env.example
+
+# Cache and temporary outputs
+.cache/
+outputs/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# OS artifacts
+.DS_Store
+Thumbs.db

@@ -1,0 +1,98 @@
+EPISODE NUMBER: Episode 1
+EPISODE LOGLINE: In the high orbital court of the Quantum Tribunal, Captain Maya Vance faces execution for detonating the Orion Singularity, until she produces encrypted biometric proof that the detonation code was authorized by the Chief Prosecutor himself.
+CONTINUITY NOTES: Establishes Maya's trial, Prosecutor Vane's political ambush, and the high-stakes revelation that sets off the tribunal conspiracy.
+
+--- SCRIPT START ---
+
+SCENE 01
+Scene heading: INT. QUANTUM TRIBUNAL CHAMBER – CYCLE 402
+Scene start: 00:00.00
+Scene end: 01:30.00
+
+Actions and dialogue:
+
+**CAMERA:**
+Start: (00:00.00) | End: (00:03.50)
+High wide crane shot swooping down through the towering crystalline pillars of the orbital courtroom toward the glowing prisoner dais.
+
+**ACTION:**
+Start: (00:00.50) | End: (00:03.50)
+Captain Maya Vance stands chained in electromagnetic restraints, her armored flight suit scuffed with carbon burns, eyes burning with defiance.
+
+**CAMERA:**
+Start: (00:03.50) | End: (00:06.00)
+Low angle medium tracking shot as Prosecutor Vane steps to the edge of the glass rostrum, smoothing his silver silk cape.
+
+**PROSECUTOR VANE (Arrogant, Resonant):**
+Start: (00:04.00) | End: (00:06.80)
+"Captain Maya Vance, you stand accused of the highest treason in the Federated Galaxies."
+
+**CAMERA:**
+Start: (00:06.80) | End: (00:09.50)
+Sharp rack focus from Vane's sneering smile to Maya's stoic, unyielding face.
+
+**CAPTAIN MAYA VANCE (Steely, Calm):**
+Start: (00:07.50) | End: (00:09.80)
+"I prevented a catastrophic sector collapse, Vane."
+
+**CAMERA:**
+Start: (00:09.80) | End: (00:12.50)
+Close-up on Chancellor Thorne seated at the apex of the judicial bench, pounding an energy gavel that resonates through the hall.
+
+**CHANCELLOR THORNE (Grave, Authoritative):**
+Start: (00:10.50) | End: (00:13.20)
+"Silence! The evidence of singularity sabotage speaks for itself."
+
+**CAMERA:**
+Start: (00:13.20) | End: (00:16.00)
+Over-the-shoulder shot behind Maya as holographic readouts flare red across the ceiling, displaying orbital casualties.
+
+**PROSECUTOR VANE (Theatrical, Condemning):**
+Start: (00:14.00) | End: (00:18.50)
+"Four hundred souls perished on Station Alpha when you severed the quantum anchor."
+
+**CAPTAIN MAYA VANCE (Fierce, Unshaken):**
+Start: (00:19.00) | End: (00:22.40)
+"Those souls were already dead before I fired, and you know who poisoned their life support."
+
+**CAMERA:**
+Start: (00:22.50) | End: (00:26.00)
+Tension builds in an extreme close-up of Vane's eyes twitching with sudden fury.
+
+**PROSECUTOR VANE (Hissing, Malicious):**
+Start: (00:23.50) | End: (00:25.80)
+"Condemn her to the void cycle immediately!"
+
+**ACTION:**
+Start: (00:26.00) | End: (00:29.50)
+Maya taps her left wrist bracer against the restraint ring, sparking an unauthorized blue data projection across the entire hall.
+
+**SOUND FX:**
+Start: (00:26.50) | End: (00:28.00)
+Digital chime ascending into a deep holographic hum.
+
+**CAMERA:**
+Start: (00:28.00) | End: (00:32.00)
+Sweeping 360-degree pan around the chamber as a colossal retinal signature matches Prosecutor Vane's personal cipher.
+
+**CAPTAIN MAYA VANCE (V.O.) (Quiet, Resolute):**
+Start: (00:30.00) | End: (00:34.00)
+"You thought you purged the black box logs, Vane. But shadows leave prints."
+
+**CHANCELLOR THORNE (Shocked, Demanding):**
+Start: (00:34.50) | End: (00:37.00)
+"Prosecutor... explain why your clearance code unsealed the reactor core!"
+
+**CAMERA:**
+Start: (00:37.00) | End: (00:41.00)
+Push-in close-up on Vane as sweat beads along his hairline, his hand stealthily drifting toward a hidden disruptor beneath his robes.
+
+**SOUND FX:**
+Start: (00:39.00) | End: (00:41.50)
+Low subsonic synth drone swells to an ominous peak.
+
+**CAMERA:**
+Start: (00:41.00) | End: (00:42.50)
+Cut to black.
+
+--- SCRIPT END ---

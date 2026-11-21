@@ -1,0 +1,93 @@
+EPISODE NUMBER: Episode 3
+EPISODE LOGLINE: Aboard the hijacked dreadnought, Maya discovers Kai's true motive for overthrowing the council: an encroaching extradimensional armada that the politicians concealed from the galaxy.
+CONTINUITY NOTES: Concludes the opening arc; transitions Maya from a condemned prisoner to the reluctant commander of the vanguard.
+
+--- SCRIPT START ---
+
+SCENE 01
+Scene heading: INT. CITADEL HANGAR BAY – CONTINUOUS
+Scene start: 00:00.00
+Scene end: 00:45.00
+
+Actions and dialogue:
+
+**CAMERA:**
+Start: (00:00.00) | End: (00:03.50)
+Fast tracking shot following Kai pulling Maya through the chaotic evacuation sirens of the orbital flight deck.
+
+**ACTION:**
+Start: (00:00.80) | End: (00:04.00)
+Sparks rain down from damaged overhead conduits as transport shuttles blast off in frantic panic around them.
+
+**CAPTAIN MAYA VANCE (Panting, Demanding):**
+Start: (00:03.00) | End: (00:05.50)
+"Let go of me! You just committed high treason, Kai!"
+
+**CAMERA:**
+Start: (00:05.50) | End: (00:08.00)
+Over-the-shoulder shot as Kai stops at the boarding ramp of a sleek stealth frigate, whirling to face her.
+
+**COMMANDER KAI (Passionate, Urgent):**
+Start: (00:06.50) | End: (00:09.80)
+"The Citadel is blind, Maya. Look out the viewing port!"
+
+**ACTION:**
+Start: (00:10.00) | End: (00:14.00)
+Maya turns toward the colossal hangar blast windows, her breath catching in her throat.
+
+**CAMERA:**
+Start: (00:11.50) | End: (00:16.00)
+Wide exterior shot through the observation glass showing thousands of dark, crystalline monoliths emerging from hyperspace rift tears.
+
+**SOUND FX:**
+Start: (00:13.00) | End: (00:17.00)
+Ominous sub-bass hum vibrating through the hull plating.
+
+SCENE 02
+Scene heading: INT. FRIGATE BRIDGE – MOMENTS LATER
+Scene start: 00:45.00
+Scene end: 01:35.00
+
+Actions and dialogue:
+
+**CAMERA:**
+Start: (00:45.00) | End: (00:48.50)
+Dutch angle dolly shot onto the glowing holotank displaying the armada's planetary trajectory.
+
+**ACTION:**
+Start: (00:45.50) | End: (00:49.00)
+Commander Kai releases Maya's wrist binders, placing the command talisman squarely into her open palm.
+
+**COMMANDER KAI (Humbled, Earnest):**
+Start: (00:48.00) | End: (00:51.50)
+"The politicians wanted you executed because you're the only pilot who ever survived their rift."
+
+**CAMERA:**
+Start: (00:51.50) | End: (00:55.00)
+Tight close-up on Maya's eyes reflecting the eerie ultraviolet glow of the enemy vanguard.
+
+**CAPTAIN MAYA VANCE (Whispered, Resolved):**
+Start: (00:53.00) | End: (00:56.20)
+"They didn't just come to conquer us... they came to reclaim what we stole."
+
+**ACTION:**
+Start: (00:56.50) | End: (01:00.00)
+Maya steps up to the central navigation console, her hands flowing over the tactile controls with effortless instinct.
+
+**CAMERA:**
+Start: (01:00.00) | End: (01:04.50)
+Hero low-angle crane shot ascending past Maya as the bridge consoles pulse to life in bright sovereign gold.
+
+**CAPTAIN MAYA VANCE (Authoritative, Commanding):**
+Start: (01:02.00) | End: (01:05.50)
+"Sound battle stations across the fleet. We take the vanguard first."
+
+**SOUND FX:**
+Start: (01:04.50) | End: (01:08.00)
+Thundering war drums harmonizing with ascending warp-drive turbines into a resolute heroic resolution.
+
+**CAMERA:**
+Start: (01:06.00) | End: (01:08.50)
+The frigate engines ignite in brilliant cyan flame, surging forward into the darkness of the rift before slow fade.
+
+--- SCRIPT END ---

@@ -1,0 +1,90 @@
+EPISODE NUMBER: Episode 2
+EPISODE LOGLINE: As Prosecutor Vane draws a concealed disruptor to silence Maya, Commander Kai breaches the tribunal with armed enforcers, arresting Vane but seizing Maya under an emergency martial decree from the Shadow Fleet.
+CONTINUITY NOTES: Picks up seconds after Maya exposes Vane's clearance code; introduces Commander Kai and the looming civil war threat.
+
+--- SCRIPT START ---
+
+SCENE 01
+Scene heading: INT. QUANTUM TRIBUNAL CHAMBER – CONTINUOUS
+Scene start: 00:00.00
+Scene end: 01:28.00
+
+Actions and dialogue:
+
+**CAMERA:**
+Start: (00:00.00) | End: (00:03.00)
+Tight whip-pan from Chancellor Thorne's bewildered stare to Prosecutor Vane whipping out a chrome plasma disruptor.
+
+**ACTION:**
+Start: (00:00.50) | End: (00:03.20)
+Vane aims the barrel straight between Maya's eyes, his composed facade crumbling into wild desperation.
+
+**PROSECUTOR VANE (Desperate, Unhinged):**
+Start: (00:01.50) | End: (00:04.20)
+"Nobody leaves this chamber alive to testify!"
+
+**CAMERA:**
+Start: (00:04.00) | End: (00:07.00)
+Low profile tracking shot across Maya as she doesn't flinch, holding her chin high against the charging energy weapon.
+
+**CAPTAIN MAYA VANCE (Mocking, Fearless):**
+Start: (00:05.00) | End: (00:07.80)
+"Pull the trigger, Vane. Every probe in the sector is broadcasting your face."
+
+**SOUND FX:**
+Start: (00:07.50) | End: (00:09.50)
+Blast doors crumple inward under heavy pneumatic breaching charges.
+
+**CAMERA:**
+Start: (00:08.50) | End: (00:12.00)
+Wide tracking shot as the heavy steel bulkhead explodes into sparks and smoke, revealing black-armored shock troopers.
+
+**ACTION:**
+Start: (00:09.00) | End: (00:13.00)
+Commander Kai steps over the smoldering debris, twin ion carbines held in a low tactical ready, cape fluttering behind him.
+
+**COMMANDER KAI (Deep, Thunderous):**
+Start: (00:12.50) | End: (00:15.80)
+"Drop the weapon, Prosecutor, or paint the wall."
+
+**CAMERA:**
+Start: (00:15.50) | End: (00:18.00)
+Extreme close-up on Vane's trembling fingers as the disruptor slips from his grip and clatters against the glass floor.
+
+**ACTION:**
+Start: (00:17.50) | End: (00:20.50)
+Enforcers pin Vane to the deck and lock stasis restraints onto his wrists.
+
+**CHANCELLOR THORNE (Trembling, Relieved):**
+Start: (00:20.00) | End: (00:23.00)
+"Thank the Stars. Commander Kai, release Captain Vance into judicial custody."
+
+**CAMERA:**
+Start: (00:23.00) | End: (00:27.50)
+Medium two-shot framing Kai walking past the Chancellor directly toward Maya, locking eyes with cold calculation.
+
+**COMMANDER KAI (Cold, Ominous):**
+Start: (00:25.00) | End: (00:28.50)
+"The High Council has been dissolved, Thorne. Vance belongs to the Shadow Fleet now."
+
+**ACTION:**
+Start: (00:28.50) | End: (00:32.00)
+Kai raises a magnetic tether, locking his gauntlet directly to Maya's wrist collar as red alert beacons strobe above.
+
+**CAPTAIN MAYA VANCE (Stunned, Suspicious):**
+Start: (00:30.00) | End: (00:33.20)
+"Kai... what did you do?"
+
+**COMMANDER KAI (O.S.) (Grim):**
+Start: (00:33.50) | End: (00:35.80)
+"I started a war to save your life."
+
+**SOUND FX:**
+Start: (00:35.00) | End: (00:38.00)
+Distant orbital sirens wailing against massive structural rumbling.
+
+**CAMERA:**
+Start: (00:36.00) | End: (00:38.50)
+Abrupt cut to black.
+
+--- SCRIPT END ---
