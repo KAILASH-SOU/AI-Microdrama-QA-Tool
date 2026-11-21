@@ -154,7 +154,3 @@ Switching models requires zero code changes. You can set the provider in `.env`,
 
 ---
 
-## 8. Confidentiality Safeguards
-
-- **Proprietary Scripts**: All proprietary scripts in `data/raw_scripts/` are strictly ignored by `.gitignore`.
-- **Public Synthetic Demo**: A 3-episode synthetic sci-fi courtroom drama (*"The Quantum Tribunal"*) is committed in `sample_data/` so recruiters and public evaluators can run the tool end-to-end without needing proprietary files.
